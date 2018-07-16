@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-swatch-picker/paper-swatch-picker.html"> 
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-swatch-picker">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+    </style>
+
+    <div class="card">
+     <paper-swatch-picker></paper-swatch-picker>
+     <paper-swatch-picker color="#E91E63"></paper-swatch-picker>
+        <!-- Disable the ripple on the color picker button -->
+    <paper-swatch-picker color="#2196F3" noink></paper-swatch-picker>
+    <paper-swatch-picker column-count="5" color-list="[&quot;#65a5f2&quot;, &quot;#2b63ba&quot;, &quot;#83be54&quot;, &quot;#3b8638&quot;, &quot;#f0d551&quot;, &quot;#d7be48&quot;, &quot;#e5943c&quot;, &quot;#cf712e&quot;, &quot;#a96ddb&quot;, &quot;#6f4196&quot;]"></paper-swatch-picker>
+    </div>
+
+  </template>
+
+  <script>
+    class SwatchPicker extends Polymer.Element {
+      static get is() { return 'my-swatch-picker'; }
+    }
+
+    window.customElements.define(SwatchPicker.is, SwatchPicker);
+  </script>
+</dom-module>

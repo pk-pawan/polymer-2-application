@@ -1,0 +1,30 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-toggle-button">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">  
+      <h3>Toggle Button</h3>
+        <paper-toggle-button checked></paper-toggle-button>
+        <paper-toggle-button disabled></paper-toggle-button>
+    </div>
+  </template>
+
+  <script>
+    class ToggleButton extends Polymer.Element {
+      static get is() { return 'my-toggle-button'; }
+    }
+
+    window.customElements.define(ToggleButton.is, ToggleButton);
+  </script>
+</dom-module>

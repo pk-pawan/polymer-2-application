@@ -1,0 +1,37 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/nebula-checkbox/nebula-checkbox.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-checkbox">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      nebula-checkbox {
+        --nebula-checkbox-color: teal;
+        --nebula-checkbox-size: 1.5rem;
+      }
+    </style>
+
+    <div class="card">
+      <h3>nebula-checkbox</h3>
+      <nebula-checkbox
+        checked="{{checked}}"
+        on-checked-changed="_onCheckedChanged">Ready</nebula-checkbox><br>
+        <h3>paper-checkbox</h3>
+        <paper-checkbox>Ready to deploy!</paper-checkbox>
+  </template>
+
+  <script>
+    class Checkbox extends Polymer.Element {
+      static get is() { return 'my-checkbox'; }
+    }
+
+    window.customElements.define(Checkbox.is, Checkbox);
+  </script>
+</dom-module>

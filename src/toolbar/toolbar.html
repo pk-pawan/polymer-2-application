@@ -1,0 +1,88 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-toolbar">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+      paper-toolbar.red {
+    --paper-toolbar-background: red;
+    --paper-toolbar-title: {
+      font-style: italic;
+      font-weight: bold;
+    };
+  }
+    </style>
+
+    <div class="card">
+        <p>Toolbar</p>
+      <paper-toolbar>
+        <span slot="top" class="title">Title</span>
+        </paper-toolbar>
+    </div>
+
+      <div class="card">
+          <p>Style Toolbar</p>
+      <paper-toolbar class="red">
+        <span slot="top" class="title">Title</span>
+        </paper-toolbar></div>
+
+    <div class="card">
+        <p>Toolbar with icon buttons</p>
+       <paper-toolbar>
+        <paper-icon-button slot="top" icon="menu"></paper-icon-button>
+        <span slot="top" class="title">Title</span>
+        <paper-icon-button slot="top" icon="refresh"></paper-icon-button>
+        <paper-icon-button slot="top" icon="add">+</paper-icon-button>
+        </paper-toolbar>
+    </div>
+    
+    <div class="card">
+        <p>Toolbar with sections</p>
+        <paper-toolbar class="tall">
+        <paper-icon-button slot="top" icon="menu"></paper-icon-button>
+        <span class="title">Title</span>
+        <paper-icon-button slot="top" icon="refresh"></paper-icon-button>
+        <paper-icon-button slot="top" icon="add">+</paper-icon-button>
+
+        <span slot="middle" class="title">Middle Title</span>
+
+        <span slot="bottom" class="title">Bottom Title</span>
+        <paper-icon-button slot="bottom" icon="content-cut"></paper-icon-button>
+        <paper-icon-button slot="bottom" icon="content-copy"></paper-icon-button>
+        <paper-icon-button slot="bottom" icon="content-paste"></paper-icon-button>
+        </paper-toolbar>
+    </div>
+
+    <div class="card">
+        <p>Toolbar with progress</p>
+        <paper-toolbar class="medium-tall">
+        <paper-icon-button icon="menu"></paper-icon-button>
+        <div class="spacer"></div>
+        <paper-icon-button icon="refresh"></paper-icon-button>
+        <paper-icon-button icon="add">+</paper-icon-button>
+        <div slot="middle" class="title">Title</div>
+        <paper-progress slot="middle" class="fit" value="60"></paper-progress>
+        </paper-toolbar>
+    </div>
+  </template>
+
+  <script>
+    class Toolbar extends Polymer.Element {
+      static get is() { return 'my-toolbar'; }
+    }
+
+    window.customElements.define(Toolbar.is, Toolbar);
+  </script>
+</dom-module>

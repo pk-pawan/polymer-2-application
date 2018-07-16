@@ -1,0 +1,44 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-toast">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      paper-toast{
+        margin-left: 300px;
+      }
+      
+    </style>
+
+    <!--<paper-toast text="Hello world!" opened></paper-toast>-->
+    <paper-toast text="Terms and conditions" opened duration="0">
+         <a href="#">Show more</a>
+    </paper-toast>
+
+<paper-toast id="toast0" text="This toast auto-closes after 3 seconds"></paper-toast>
+     <paper-button raised on-click="abc()">Default toast</paper-button>
+    
+
+     <paper-button raised onclick="toast1.open()">Persistent toast</paper-button>
+
+      <paper-toast id="toast1" duration="0" text="This toast will stay opened until you close it, or open another toast.">
+        <paper-button onclick="toast1.toggle()">Close now!</paper-button>
+      </paper-toast>
+
+  </template>
+
+  <script>
+    class Toast extends Polymer.Element {
+      static get is() { return 'my-toast'; }      
+    }
+
+    window.customElements.define(Toast.is, Toast);
+  </script>
+</dom-module>

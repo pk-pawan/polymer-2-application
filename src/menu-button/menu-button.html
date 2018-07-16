@@ -1,0 +1,88 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html"> 
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html"> 
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html"> 
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-menu-button">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+      paper-button.red{
+          color: red;
+          background: peachpuff;
+       }
+
+    </style>
+
+    <div class="card">
+        <paper-menu-button>
+            <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
+            <paper-listbox slot="dropdown-content">
+                <paper-item>alpha</paper-item>
+                <paper-item>beta</paper-item>
+                <paper-item>gamma</paper-item>
+                <paper-item>delta</paper-item>
+                <paper-item>epsilon</paper-item>
+            </paper-listbox>
+        </paper-menu-button>
+
+        <paper-menu-button ignore-select>
+            <paper-icon-button icon="menu" slot="dropdown-trigger" alt="multi menu"></paper-icon-button>
+            <paper-listbox slot="dropdown-content" multi>
+                <paper-item>alpha</paper-item>
+                <paper-item>beta</paper-item>
+                <paper-item>gamma</paper-item>
+                <paper-item>delta</paper-item>
+                <paper-item>epsilon</paper-item>
+            </paper-listbox>
+        </paper-menu-button>
+
+        <paper-menu-button disabled>
+        <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
+        <paper-listbox slot="dropdown-content">
+            <paper-item>alpha</paper-item>
+            <paper-item>beta</paper-item>
+            <paper-item>gamma</paper-item>
+            <paper-item>delta</paper-item>
+            <paper-item>epsilon</paper-item>
+        </paper-listbox>
+        </paper-menu-button>
+
+        <paper-menu-button>
+        <paper-button slot="dropdown-trigger" class="red" raised>
+            <iron-icon icon="check"></iron-icon>
+            <span>Dinosaurs</span>
+        </paper-button>
+        <paper-listbox slot="dropdown-content">
+                <paper-item>allosaurus</paper-item>
+                <paper-item>brontosaurus</paper-item>
+                <paper-item>carcharodontosaurus</paper-item>
+                <paper-item>diplodocus</paper-item>
+                <paper-item>ekrixinatosaurus</paper-item>
+                <paper-item>fukuiraptor</paper-item>                                
+                <paper-item>gallimimus</paper-item>
+        </paper-listbox>
+        </paper-menu-button>
+
+     </div>
+
+  </template>
+
+  <script>
+    class MenuButton extends Polymer.Element {
+      static get is() { return 'my-menu-button'; }
+
+    }
+
+    window.customElements.define(MenuButton.is, MenuButton);
+  </script>
+</dom-module>

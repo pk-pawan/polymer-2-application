@@ -1,0 +1,61 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-badge/paper-badge.html"> 
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-badge">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      .red {
+      --paper-badge-background: var(--paper-red-300);
+    }
+    .blue {
+      --paper-badge-background: var(--paper-light-blue-300);
+    }
+     
+    </style>
+
+    <div class="card">  
+      <h3>Badges</h3>
+        <paper-icon-button id="number" icon="communication:email" alt="inbox">
+        </paper-icon-button>
+        <paper-badge for="number" label="4">
+        </paper-badge>
+
+        <paper-icon-button id="icon" icon="account-box" alt="person">
+        </paper-icon-button>
+        <paper-badge icon="social:mood" for="icon" label="happy">
+        </paper-badge>
+    </div>
+    <div class="card">
+      <h3>Style Badges</h3>
+      <paper-icon-button id="number2" icon="communication:email" alt="inbox">
+        </paper-icon-button>
+        <paper-badge for="number2" label="4" class="red">
+        </paper-badge>
+
+        <paper-icon-button id="icon2" icon="account-box" alt="person">
+        </paper-icon-button>
+        <paper-badge icon="social:mood" for="icon2" label="happy" class="blue">
+        </paper-badge>
+    </div>
+  </template>
+
+  <script>
+    class Badge extends Polymer.Element {
+      static get is() { return 'my-badge'; }
+    }
+
+    window.customElements.define(Badge.is, Badge);
+  </script>
+</dom-module>

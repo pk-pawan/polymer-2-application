@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-progress/paper-progress.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-progress">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+       paper-progress.slow {
+              --paper-progress-indeterminate-cycle-duration: 20s;
+            }
+
+      paper-progress.blue {
+              --paper-progress-active-color: var(--paper-light-blue-500);
+              --paper-progress-secondary-color: var(--paper-light-blue-100);
+            }
+            paper-progress.red {
+              --paper-progress-active-color: var(--paper-red-500);
+              --paper-progress-secondary-color: var(--paper-red-100);
+            }
+    </style>
+    <div class="card">
+        <paper-progress indeterminate class="blue"></paper-progress><br>
+        <paper-progress indeterminate class="slow red"></paper-progress><br>
+        <paper-progress value="40" secondary-progress="80"></paper-progress>
+    </div>
+  </template>
+
+  <script>
+    class Progress extends Polymer.Element {
+      static get is() { return 'my-progress'; }
+    }
+
+    window.customElements.define(Progress.is, Progress);
+  </script>
+</dom-module>

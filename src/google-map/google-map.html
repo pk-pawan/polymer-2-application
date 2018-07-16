@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../bower_components/google-map/google-map-marker.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-google-map">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      google-map {
+			height: 480px;
+		}
+    </style>
+    <!--<div class="card">-->
+        <google-map latitude="12.908136" longitude="77.647608" zoom="11">
+				<google-map-marker latitude="12.908136" longitude="77.647608" draggable="true">HSR Layout</google-map-marker>
+		</google-map>
+    <!--</div>-->
+  </template>
+
+  <script>
+    class GoogleMap extends Polymer.Element {
+      static get is() { return 'my-google-map'; }
+    }
+
+    window.customElements.define(GoogleMap.is, GoogleMap);
+  </script>
+</dom-module>

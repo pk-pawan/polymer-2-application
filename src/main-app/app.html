@@ -1,0 +1,210 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/highcharts-chart/highcharts-chart.html">
+
+<link rel="import" href="../my-icons.html">
+
+<link rel="import" href="../button/button.html">
+<link rel="import" href="../checkbox/checkbox.html">
+<!--<link rel="import" href="../vaadin-charts/vaadin-charts.html">-->
+
+<dom-module id="my-app">
+  <template>
+    <style>
+      :host {
+        --app-primary-color: #4285f4;
+        --app-secondary-color: black;
+
+        display: block;
+      }
+
+      app-drawer-layout:not([narrow]) [drawer-toggle] {
+        display: none;
+      }
+
+      app-header {
+        color: #fff;
+        background-color: var(--app-primary-color);
+      }
+
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+      }
+
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+        line-height: 40px;
+      }
+
+      .drawer-list a.iron-selected {
+        color: black;
+        font-weight: bold;
+      }
+
+       .hide {
+        display: none;
+      }
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <app-drawer-layout fullbleed narrow="{{visible}}">
+      <!-- Drawer content -->
+      <app-drawer id="drawer" slot="drawer" style="height: 100%; overflow-y: scroll;">
+        <app-toolbar>Menu</app-toolbar>
+        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="button" href="/button">Button</a>
+          <a name="checkbox" href="/checkbox">Checkbox</a>
+          <a name="highcharts" href="/highcharts">HighChart</a>
+          <a name="badge" href="/badge">Badge</a>
+          <a name="drawer-panel" href="/drawer-panel">Drawer Panel</a>
+          <a name="tooltip" href="/tooltip">Tooltip</a>
+          <a name="listbox" href="/listbox">Listbox</a>
+          <a name="toolbar" href="/toolbar">Toolbar</a>
+           <a name="icon-button" href="/icon-button">Icon-Button</a>
+           <a name="swatch-picker" href="/swatch-picker">Swatch-Picker</a>
+           <a name="card" href="/card">Card</a>
+           <a name="menu-button" href="/menu-button">Menu Button</a>
+           <a name="radio-button" href="/radio-button">Radio Button</a>
+           <a name="toggle-button" href="/toggle-button">Toggle Button</a>
+           <a name="toast" href="/toast">Toast</a>
+            <a name="progress" href="/progress">Progress</a>
+            <a name="spinner" href="/spinner">Spinner</a>
+            <a name="ripple" href="/ripple">Ripple</a>
+            <a name="google-map" href="/google-map">Google Map</a>
+            <a name="youtube-video" href="/youtube-video">Youtube Video</a>
+            <a name="tabs" href="/tabs">Tabs</a>
+            <a name="styles" href="/styles">Styles</a>
+            <a name="dropdown-menu" href="/dropdown-menu">Dropdown Menu</a>
+            <a name="dialog" href="/dialog">Dialog</a>
+          <!--<a name="vaadin-charts" href="/vaadin-charts">vaadin-charts</a>-->
+        </iron-selector>
+      </app-drawer>
+
+      <!-- Main content -->
+      <app-header-layout has-scrolling-region>
+
+        <app-header slot="header" condenses reveals effects="waterfall">
+          <app-toolbar>
+            <paper-icon-button id="button" icon="myicons:menu" drawer-toggle></paper-icon-button>
+            <div main-title>My App</div>
+          </app-toolbar>
+        </app-header>
+
+        <iron-pages
+            selected="[[page]]"
+            attr-for-selected="name" role="main">
+            <my-button name="button"></my-button>
+            <my-checkbox name="checkbox"></my-checkbox>
+            <my-highcharts name="highcharts"></my-highcharts>
+            <my-badge name="badge"></my-badge>
+            <my-drawer-panel name="drawer-panel"></my-drawer-panel>
+            <my-tooltip name="tooltip"></my-tooltip>
+            <my-listbox name="listbox"></my-listbox>
+            <my-toolbar name="toolbar"></my-toolbar>
+            <my-icon-button name="icon-button"></my-icon-button>
+            <my-swatch-picker name="swatch-picker"></my-swatch-picker>
+            <my-card name="card"></my-card>
+            <my-menu-button name="menu-button"></my-menu-button>
+            <my-radio-button name="radio-button"></my-radio-button>
+            <my-toggle-button name="toggle-button"></my-toggle-button>
+            <my-toast name="toast"></my-toast>
+            <my-progress name="progress"></my-progress>
+            <my-spinner name="spinner"></my-spinner>
+            <my-ripple name="ripple"></my-ripple>
+            <my-google-map name="google-map"></my-google-map>
+            <my-youtube-video name="youtube-video"></my-youtube-video>
+            <my-tabs name="tabs"></my-tabs>
+            <my-styles name="styles"></my-styles>
+            <my-dropdown-menu name="dropdown-menu"></my-dropdown-menu>
+            <my-dialog name="dialog"></my-dialog>
+            <!--<my-vaadin-charts name="vaadin-charts"></my-vaadin-charts>-->
+        </iron-pages>
+      </app-header-layout>
+    </app-drawer-layout>
+  </template>
+
+  <script>
+    /** @polymerElement */
+    class MyApp extends Polymer.Element {
+      static get is() { return 'my-app'; }
+      static get properties() {
+        return {
+          page: {
+            type: String,
+            reflectToAttribute: true,
+            observer: '_pageChanged',
+          },
+      //     _onTap() {
+      //   console.log(this.page);
+      //   this.$.drawer.toggle();
+      // },
+      //   _pageChanged(value) {
+      //   this.toggleClass('hide', !value, this.$.button);
+      // }
+
+        };
+      }
+      static get observers() {
+        return [
+          '_routePageChanged(routeData.page)',
+        ];
+      }
+
+
+      _routePageChanged(page) {
+        // Polymer 2.0 will call with `undefined` on initialization.
+        // Ignore until we are properly called with a string.
+        if (page === undefined) {
+          return;
+        }
+
+        // If no page was found in the route data, page will be an empty string.
+        // Deault to 'view1' in that case.
+        this.page = page || 'button';
+
+        // Close a non-persistent drawer when the page & route are changed.
+        if (!this.$.drawer.persistent) {
+          this.$.drawer.close();
+        }
+      }
+
+      _pageChanged(page) {
+        // Load page import on demand. Show 404 page if fails
+        var resolvedPageUrl = this.resolveUrl('../'+ page +'/' + page + '.html');
+        Polymer.importHref(
+            resolvedPageUrl,
+            null,
+            this._showPage404.bind(this),
+            true);
+      }
+
+      _showPage404() {
+        this.page = 'checkbox';
+      }
+    }
+    window.customElements.define(MyApp.is, MyApp);
+  </script>
+</dom-module>

@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/google-youtube/google-youtube.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-youtube-video">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    
+    </style>
+
+    <google-youtube video-id="TA8JprZlDYA" height="388px" width="690px" class="youtube"></google-youtube>
+  
+  </template>
+
+  <script>
+    class YoutubeVideo extends Polymer.Element {
+      static get is() { return 'my-youtube-video'; }
+    }
+
+    window.customElements.define(YoutubeVideo.is, YoutubeVideo);
+  </script>
+</dom-module>

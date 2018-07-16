@@ -1,0 +1,36 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-drawer-panel/paper-drawer-panel.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-drawer-panel">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    
+    </style>
+
+    <!--<div class="card">-->
+     <paper-drawer-panel right-drawer>
+        <paper-header-panel slot="drawer">
+            <paper-toolbar></paper-toolbar>
+            <div> Drawer content... </div>
+        </paper-header-panel>
+        <paper-header-panel slot="main">
+            <paper-toolbar></paper-toolbar>
+            <div> Main content... </div>
+        </paper-header-panel>
+        </paper-drawer-panel>
+  </template>
+
+  <script>
+    class DrawerPanel extends Polymer.Element {
+      static get is() { return 'my-drawer-panel'; }
+    }
+
+    window.customElements.define(DrawerPanel.is, DrawerPanel);
+  </script>
+</dom-module>

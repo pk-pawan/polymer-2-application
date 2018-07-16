@@ -1,0 +1,79 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/nebula-button/nebula-button.html"> 
+<link rel="import" href="../../bower_components/paper-button/paper-button.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-button">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      nebula-button {
+        color: teal;
+      }
+      paper-button {
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-weight: normal;
+          font-size: 14px;
+          -webkit-font-smoothing: antialiased;
+        }
+        paper-button.pink {
+          color: var(--paper-pink-a200);
+          --paper-button-ink-color: var(--paper-pink-a200);
+        }
+        paper-button.pink:hover {
+          background-color: var(--paper-pink-100);
+        }
+        paper-button.indigo {
+          background-color: var(--paper-indigo-500);
+          color: white;
+          --paper-button-raised-keyboard-focus: {
+            background-color: var(--paper-pink-a200) !important;
+            color: white !important;
+          };
+        }
+        paper-button.indigo:hover {
+          background-color: var(--paper-indigo-400);
+        }
+        paper-button.green {
+          background-color: var(--paper-green-500);
+          color: white;
+        }
+        paper-button.green[active] {
+          background-color: var(--paper-red-500);
+        }
+        paper-button.disabled {
+          color: white;
+        }
+    </style>
+
+    <div class="card">
+      <nebula-button on-click="_onClick">
+          Button
+      </nebula-button>
+      <nebula-button toggle pressed="{{pressed}}" on-change="_onChange">
+        Button
+      </nebula-button>
+    </div>
+    
+      <div class="card">
+        <paper-button class="pink">link</paper-button>
+        <paper-button raised class="indigo">raised</paper-button>
+        <paper-button toggles raised class="green">toggles</paper-button>
+        <paper-button disabled class="disabled">disabled</paper-button>
+      </div>
+       
+  </template>
+
+  <script>
+    class Button extends Polymer.Element {
+      static get is() { return 'my-button'; }
+    }
+
+    window.customElements.define(Button.is, Button);
+  </script>
+</dom-module>

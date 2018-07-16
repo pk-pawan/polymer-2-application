@@ -1,0 +1,50 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-radio-button/paper-radio-button.html"> 
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="my-radio-button">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+     paper-radio-button.red {
+      --paper-radio-button-checked-color: var(--paper-red-500);
+      --paper-radio-button-checked-ink-color: var(--paper-red-500);
+      --paper-radio-button-unchecked-color: var(--paper-red-900);
+      --paper-radio-button-unchecked-ink-color: var(--paper-red-900);
+      --paper-radio-button-label-color: var(--paper-red-500);
+    }
+    paper-radio-button.green {
+      --paper-radio-button-checked-color: var(--paper-green-500);
+      --paper-radio-button-checked-ink-color: var(--paper-green-500);
+      --paper-radio-button-unchecked-color: var(--paper-green-900);
+      --paper-radio-button-unchecked-ink-color: var(--paper-green-900);
+      --paper-radio-button-label-color: var(--paper-green-500);
+    }
+
+    </style>
+
+    <div class="card">  
+      <h3>Radio Button</h3>
+        <paper-radio-button>Radio</paper-radio-button>
+        <paper-radio-button checked>Radio</paper-radio-button>
+        <paper-radio-button disabled>Disabled</paper-radio-button>
+
+        <paper-radio-button noink>Radio</paper-radio-button>
+        <paper-radio-button class="red">Radio</paper-radio-button>
+        <paper-radio-button checked class="green">Radio</paper-radio-button>
+    </div>
+  </template>
+
+  <script>
+    class RadioButton extends Polymer.Element {
+      static get is() { return 'my-radio-button'; }
+    }
+
+    window.customElements.define(RadioButton.is, RadioButton);
+  </script>
+</dom-module>
